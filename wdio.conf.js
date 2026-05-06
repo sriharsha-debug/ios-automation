@@ -51,14 +51,12 @@ exports.config = {
     // https://saucelabs.com/platform/platform-configurator
     //
     capabilities: [{
-        // capabilities for local Appium web tests on iOS
-        platformName: 'iOS',
-        browserName: 'Safari',
-        'appium:deviceName': 'iPhone Simulator',
-        'appium:platformVersion': '18.5',
-        'appium:automationName': 'XCUITest'
-    }],
-
+    platformName: 'iOS',
+    'appium:deviceName': 'iPhone 15',
+    'appium:platformVersion': '18.5',
+    'appium:automationName': 'XCUITest',
+    browserName: 'Safari',
+}],
     //
     // ===================
     // Test Configurations
