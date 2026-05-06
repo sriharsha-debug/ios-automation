@@ -50,12 +50,16 @@ exports.config = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://saucelabs.com/platform/platform-configurator
     //
-   capabilities: [{
+  capabilities: [{
     platformName: 'iOS',
     'appium:deviceName': 'iPhone 16',
     'appium:platformVersion': '18.5',
     'appium:automationName': 'XCUITest',
     'appium:bundleId': 'com.measures.app',
+    'appium:noReset': true,
+    'appium:usePrebuiltWDA': false,
+    'appium:wdaLaunchTimeout': 120000,
+    'appium:wdaConnectionTimeout': 120000,
 }],
     //
     // ===================
