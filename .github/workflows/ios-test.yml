@@ -35,11 +35,6 @@ jobs:
           echo "SIMULATOR_UDID=$UDID" >> $GITHUB_ENV
           sleep 90
 
-      - name: Install app on Simulator
-        run: |
-          xcrun simctl install $SIMULATOR_UDID Measures.ipa || true
-          sleep 10
-
       - name: Run iOS Tests
         timeout-minutes: 30
         run: npm run wdio
