@@ -27,12 +27,16 @@ jobs:
       - name: Install XCUITest driver
         run: appium driver install xcuitest
 
+      - name: List available simulators
+        run: xcrun simctl list devices available
+
       - name: Boot iOS Simulator
         run: |
-          UDID=$(xcrun simctl create "iPhone15Test" "iPhone 15" "com.apple.CoreSimulator.SimRuntime.iOS-18-5")
+          UDID=$(xcrun simctl list devices available | grep "iPhone 15" | grep "18.5" | head -1 | grep -E -o '[0-9A-F-]{36}')
+          echo "Found UDID: $UDID"
           xcrun simctl boot $UDID
           echo "SIMULATOR_UDID=$UDID" >> $GITHUB_ENV
-          xcrun simctl bootstatus $UDID -b
+          sleep 30
 
       - name: Run iOS Tests
         run: npm run wdio
